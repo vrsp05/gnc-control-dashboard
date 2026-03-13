@@ -10,9 +10,19 @@
 </head>
 <body>
     <div class="panel">
-        <h1>{{ unit_name }}</h1>
-        <p>Status: <strong>{{ system_status }}</strong></p>
-        <p>Telemetry: Active</p>
-    </div>
+    <h1>{{ unit_name }}</h1>
+    <p>Status: <strong style="color: yellow;">{{ system_status }}</strong></p>
+    <p>Current Alert Threshold: {{ current_threshold }} cm</p>
+    
+    <hr style="border: 0.5px solid #00ff00;">
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" style="background: #00ff00; color: black; font-weight: bold;">
+            UPDATE SET-POINT
+        </button>
+    </form>
+</div>
 </body>
 </html>
