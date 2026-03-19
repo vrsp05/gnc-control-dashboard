@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +12,11 @@
 <body>
     <div class="panel">
     <h1>{{ unit_name }}</h1>
-    <p>Status: <strong style="color: yellow;">{{ system_status }}</strong></p>
+    <p>Status: 
+    <strong class="{% if 'WARNING' in system_status %}warning{% endif %}">
+        {{ system_status }}
+    </strong>
+    </p>
     <p>Current Alert Threshold: {{ current_threshold }} cm</p>
     
     <hr style="border: 0.5px solid #00ff00;">
