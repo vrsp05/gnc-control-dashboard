@@ -23,6 +23,23 @@
             UPDATE SET-POINT
         </button>
     </form>
-</div>
+
+    <hr style="border: 0.5px solid #00ff00;">
+    <h3>SYSTEM HISTORIAN (Last 5 Logs)</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr style="text-align: left; border-bottom: 1px solid #00ff00;">
+            <th>Timestamp</th>
+            <th>Value</th>
+            <th>Status</th>
+        </tr>
+        {% for log in history %}
+        <tr>
+            <td>{{ log.timestamp|date:"H:i:s" }}</td>
+            <td>{{ log.value }} cm</td>
+            <td>{{ log.status_message }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
 </body>
 </html>
